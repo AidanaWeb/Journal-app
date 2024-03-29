@@ -95,20 +95,37 @@
             margin-top: 20px;
         }
         .entry-read{
-            background-color: rgb(198, 197, 197); 
+            background-color: rgb(231, 228, 228); 
+            border: none;
             min-height: 600px; 
-            overflow-y:scroll
+            overflow-y:scroll;
+            
+            padding: 20px;
         }
 
         .card-title{
             font-weight: bold;
         }
 
+        .entry-read-title{
+            font-weight: bold;
+            font-size: 30px;
+
+            margin-top: 20px;
+        }
+        .entry-read-body{
+            margin-top: 20px;
+        }
+
+
         /* pseudo-classes */
         .entry-2:hover{
-            background-color: rgb(204, 221, 224);
+            /* background-color: rgb(204, 221, 224); */
+            border-color: rgb(0, 0, 0);
+
             color: black;
         }
+
     </style>
 
 <x-app-layout>

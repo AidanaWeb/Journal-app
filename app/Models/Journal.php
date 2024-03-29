@@ -17,6 +17,6 @@ class Journal extends Model
 
 
     public function entries() : HasMany{
-        return $this->hasMany(Entry::class);
+        return $this->hasMany(Entry::class, 'journal_id');
     }
 }

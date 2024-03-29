@@ -4,7 +4,7 @@
 <div class="right">
 
     @foreach ($entries as $entry)
-    <a href="">
+    <a href=" {{route('entry.show', ['journal' => $entry->journal_id, 'entry' => $entry])}} ">
         <div class="card mb-3 entry-2">
             <div class="row">
                 <div class="col-sm-8">

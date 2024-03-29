@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,13 @@ require __DIR__.'/auth.php';
 
 
 
+// ---------------------------------------
+
 Route::get('/dashboard', [JournalController::class, 'index'])->name('dashboard');
+
+Route::get('/dashboard/journals/{journal}/entries', [EntryController::class, 'index'])->name('journals.entries.index');
+
+Route::get('/dashboard/journals/{journal}/entries/{entry}', [EntryController::class, 'show'])->name('entry.show');
 
 
 
