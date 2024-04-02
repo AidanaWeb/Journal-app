@@ -33,6 +33,7 @@ Route::get('/dashboard/journals/{journal}/entries/{entry}', [EntryController::cl
 Route::get('/dashboard/journals/{journal}/entries/create', [EntryController::class, 'create'])->name('entries.create');
 
 
-
+// add journals
+Route::post('/dashboard', [JournalController::class, 'store'])->name('journals.store');
 
 

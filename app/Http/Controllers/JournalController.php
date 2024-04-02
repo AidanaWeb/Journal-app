@@ -30,4 +30,22 @@ class JournalController extends Controller
         
         return view('dashboard', compact('journals', 'entries'));
     }
+    
+    public function store(){
+        $validate= request()->validate([
+            'journal-name' => 'required|string|max:12'
+        ]);
+
+        $journalName = $validate['journal-name'];
+        $user_id = $this->user_id;
+
+        $data = [
+            'journal_name' => $journalName,
+            'user_id' => $user_id
+        ];
+
+        Journal::create($data);
+
+        return redirect()->route('dashboard');
+    }
 }

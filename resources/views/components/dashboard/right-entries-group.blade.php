@@ -17,12 +17,12 @@
                 </div>
     
                 {{-- image --}}
-                <div class="col-sm-4"> 
+                {{-- <div class="col-sm-4"> 
                     <div class="entry-image-2">
                         <img src="https://media.licdn.com/dms/image/C4E0BAQHTtUsRzaJKGw/company-logo_200_200/0/1648215628718/day_oned1_logo?e=2147483647&v=beta&t=HXX_oSQUUvPu_5_-oIXYd2x0XrsxnhskX_X39ZaJErk"
                             class="img-fluid rounded-start entry-img" alt="...">
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </a>

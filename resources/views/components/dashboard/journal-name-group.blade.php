@@ -30,6 +30,17 @@
         </a>
         @endforeach
         
+
+        @if (session('journal_create'))
+            <form action="">
+                <button class="btn btn-dark journal-name-">
+                    <input type="text" style="float: left;">
+                        
+                    
+                </button>  
+            </form>
+        @endif
+
     </div>
     
     

@@ -70,6 +70,12 @@
         .journal-name-group {
             margin-top: 20px;
         }
+        
+        #input-journal-name{
+            border-radius: 10px;
+        }
+
+        /* ------------------------ */
 
         .entries {
             margin-top: 20px;
@@ -162,9 +168,23 @@
             <!-- journals -->
             <!-- Первый столбец --------------------------->
             <div class="col-lg-2">
-                <button class="btn btn-light add-journal">
-                    + Добавить дневник
-                </button>
+                {{-- <a href=" {{route('journals.create')}} ">
+                    <button class="btn btn-light add-journal">
+                        + Добавить дневник
+                    </button>
+                </a> --}}
+
+                <form action="" method="post">
+                    @csrf
+                    @method('post')
+                    <button type="submit" class="btn btn-light add-journal">
+                        + Добавить дневник
+                    </button>
+
+                    <input name="journal-name" id="input-journal-name" type="text" placeholder="Название">
+                </form>
+
+
                 <div class="left">
 
                     @include('components.dashboard.journal-name-group')

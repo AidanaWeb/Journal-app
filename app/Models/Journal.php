@@ -12,9 +12,10 @@ class Journal extends Model
 
     public $fillable = [
         'journal_name',
-        'user_id'
+        'user_id',
     ];
 
+    public $timestamps = true;
 
     public function entries() : HasMany{
         return $this->hasMany(Entry::class, 'journal_id');
