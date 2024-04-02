@@ -44,8 +44,13 @@ class JournalController extends Controller
             'user_id' => $user_id
         ];
 
-        Journal::create($data);
+        $journal = Journal::create($data);
 
-        return redirect()->route('dashboard');
+        if($journal){
+            return redirect()->route('dashboard');
+        }
+        else{
+            return redirect()->route('dashboard')->withErrors('error', 'не удалось создать дневник');
+        }
     }
 }

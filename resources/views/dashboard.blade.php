@@ -75,6 +75,12 @@
             border-radius: 10px;
         }
 
+        #error-input-journal{
+            font-size: 14px;
+            margin-left: 10px;
+            color: red;
+        }
+
         /* ------------------------ */
 
         .entries {
@@ -168,22 +174,24 @@
             <!-- journals -->
             <!-- Первый столбец --------------------------->
             <div class="col-lg-2">
-                {{-- <a href=" {{route('journals.create')}} ">
-                    <button class="btn btn-light add-journal">
-                        + Добавить дневник
-                    </button>
-                </a> --}}
 
-                <form action="" method="post">
+                <form action=" {{route('journals.store')}} " method="post">
                     @csrf
                     @method('post')
                     <button type="submit" class="btn btn-light add-journal">
                         + Добавить дневник
                     </button>
 
-                    <input name="journal-name" id="input-journal-name" type="text" placeholder="Название">
+                    <input name="journal-name" id="input-journal-name" type="text" placeholder="Название">    
                 </form>
 
+                @if (session()->has('errors'))
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li id="error-input-journal"> {{$error}} </li>
+                        @endforeach
+                    </ul>
+                @endif
 
                 <div class="left">
 
