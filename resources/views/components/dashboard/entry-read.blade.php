@@ -23,6 +23,6 @@
         <pre class="entry-read-body">
             {{$entry->entry_body}}
         </pre>
-    @endif      
-
+    @endif 
+    
 </div>

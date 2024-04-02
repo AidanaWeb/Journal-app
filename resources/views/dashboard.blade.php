@@ -39,14 +39,26 @@
             margin-top: 20px
         }
 
-        .journal-name {
+        .journal-name- {
             margin-top: 5px;
             display: block;
             width: 90%;
 
             background-color: rgba(222, 222, 222, 1);
-            color: black;
+            color: rgb(101, 97, 97);
             border: none;
+
+            text-align: start;
+            padding-left: 20px;
+            margin-left: 10px;
+
+            max-height: 40px;
+        }
+
+        .journal-name-selected{
+            margin-top: 5px;
+            display: block;
+            width: 90%;
 
             text-align: start;
             padding-left: 20px;
@@ -115,6 +127,16 @@
         }
         .entry-read-body{
             margin-top: 20px;
+
+            max-width: 100%;
+        }
+
+        pre{
+            white-space: pre-wrap;
+        }
+
+        .text1{
+            white-space: pre-wrap;
         }
 
 
@@ -157,9 +179,26 @@
             <!-- Второй столбец ------------------------->
             <div class="col-lg-3">
                 <br>
-                <button class="btn btn-dark">
-                    + Добавить запись
-                </button>
+
+                @if (!empty($journal_id))
+                    <a href=" {{ route('entries.create', $journal_id) }} ">
+                        <button class="btn btn-dark">
+                            + Добавить запись
+                        </button>
+                    </a>
+                @else
+                    <a href="  ">
+                        <button class="btn btn-dark">
+                            + Добавить запись
+                        </button>
+                    </a>
+                @endif
+
+                {{-- <a href="  ">
+                    <button class="btn btn-dark">
+                        + Добавить запись
+                    </button>
+                </a> --}}
                 <br><br>
 
                 @include('components.dashboard.right-entries-group')

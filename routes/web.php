@@ -29,9 +29,10 @@ Route::get('/dashboard/journals/{journal}/entries', [EntryController::class, 'in
 
 Route::get('/dashboard/journals/{journal}/entries/{entry}', [EntryController::class, 'show'])->name('entry.show');
 
+// add entry
+Route::get('/dashboard/journals/{journal}/entries/create', [EntryController::class, 'create'])->name('entries.create');
 
 
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
