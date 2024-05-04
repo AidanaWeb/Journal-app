@@ -32,7 +32,7 @@ class JournalController extends Controller
     }
     
     public function store(){
-        $validate= request()->validate([
+        $validate = request()->validate([
             'journal-name' => 'required|string|max:12'
         ]);
 

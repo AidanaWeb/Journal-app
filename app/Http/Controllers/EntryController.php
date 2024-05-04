@@ -46,9 +46,29 @@ class EntryController extends Controller
         return view('dashboard', compact('journals', 'entries', 'entry', 'journal_id'));
     }
 
-    public function create(Journal $journal){
+    public function store(Journal $journal){
 
+        $journal_id = $journal->id;
+
+        $validate = request()->validate([
+            'entry-title' => 'required|max:100',
+            'entry-body' => 'required'
+        ]);
         
-        
+        $data = [
+            'entry_title' => $validate['entry-title'],
+            'entry_body' => $validate['entry-body'],
+            'journal_id' => $journal_id,
+            'user_id' => $this->user_id
+        ];
+
+        $entry = Entry::create($data);
+
+        if($entry){
+            return redirect()->route('entry.show', compact('journal', 'entry'));
+        }
+        else{
+            return redirect()->route('dashboard')->withErrors('error', 'не удалось создать запись');
+        }
     }
 }

@@ -13,17 +13,17 @@
                 <button class="btn btn-dark journal-name-{{$journal->id == $journal_id ? 'selected' : ''}}">
                     <span style="float: left;"> {{$journal->journal_name}} </span>
                         
-                    <span class="d-flex flex-row-reverse bd-highlight">
+                    {{-- <span class="d-flex flex-row-reverse bd-highlight">
                         <span class="badge bg-secondary badge"> {{$journal->entries_num}} </span>
-                    </span>
+                    </span> --}}
                 </button>     
             @else
                 <button class="btn btn-dark journal-name-">
                     <span style="float: left;"> {{$journal->journal_name}} </span>
                         
-                    <span class="d-flex flex-row-reverse bd-highlight">
+                    {{-- <span class="d-flex flex-row-reverse bd-highlight">
                         <span class="badge bg-secondary badge"> {{$journal->entries_num}} </span>
-                    </span>
+                    </span> --}}
                 </button>
             @endif
             

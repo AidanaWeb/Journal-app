@@ -29,11 +29,15 @@ Route::get('/dashboard/journals/{journal}/entries', [EntryController::class, 'in
 
 Route::get('/dashboard/journals/{journal}/entries/{entry}', [EntryController::class, 'show'])->name('entry.show');
 
-// add entry
-Route::get('/dashboard/journals/{journal}/entries/create', [EntryController::class, 'create'])->name('entries.create');
-
 
 // add journals
 Route::post('/dashboard', [JournalController::class, 'store'])->name('journals.store');
 
 
+// add entry
+Route::post('/dashboard/journals/{journal}/entries/store', [EntryController::class, 'store'])->name('entries.store');
+
+
+Route::get('/dashboard/testModal', function(){
+    return view('components/dashboard/testModal');
+});

@@ -160,6 +160,17 @@
             color: black;
         }
 
+        .modal-title{
+            font-weight: 600;
+            font-size: x-large;
+        }
+        .modal-body{
+            color: black;
+        }
+
+        #save-btn{
+            background-color: black;
+        }
     </style>
 
 <x-app-layout>
@@ -207,27 +218,84 @@
             <!-- Второй столбец ------------------------->
             <div class="col-lg-3">
                 <br>
-
+                
                 @if (!empty($journal_id))
-                    <a href=" {{ route('entries.create', $journal_id) }} ">
-                        <button class="btn btn-dark">
-                            + Добавить запись
-                        </button>
-                    </a>
-                @else
-                    <a href="  ">
-                        <button class="btn btn-dark">
-                            + Добавить запись
-                        </button>
-                    </a>
-                @endif
-
-                {{-- <a href="  ">
-                    <button class="btn btn-dark">
+                    <button class="btn btn-dark"data-bs-toggle="modal" data-bs-target="#createEntryModal">
                         + Добавить запись
                     </button>
-                </a> --}}
+                @else
+                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#errorCreateEntryModel">
+                    + Добавить запись
+                </button>
+                @endif
+
+
+
                 <br><br>
+
+                @if (!empty($journal_id))
+                    {{-- modal --}}
+                <div class="modal fade" id="createEntryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Новая запись</h5>
+                          <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            {{-- Form --}}
+                          <form action=" {{route('entries.store', $journal_id)}} " method="post">
+                            @csrf
+                            @method('post')
+
+                            <div class="mb-3">
+                              <label for="recipient-name" class="col-form-label">Заголовок:</label>
+
+                                {{-- --}}
+                              <input name="entry-title" type="text" class="form-control" id="recipient-name">
+
+                            </div>
+                            <div class="mb-3">
+                              <label for="message-text" class="col-form-label">Запись:</label>
+
+                              {{-- --}}
+                              <textarea name="entry-body" class="form-control" id="message-text" 
+                              style="min-height: 350px"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+    
+                              {{-- Кнопка для сохранения --}}
+
+                                 <input type="submit" id="save-btn" class="btn btn-dark" value="Сохранить"></input>
+
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                @endif
+                
+
+                {{-- modal error --}}
+                <div class="modal fade" id="errorCreateEntryModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Ошибка</h5>
+                          <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Выберите дневник
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-dark" data-bs-dismiss="modal">ОК</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                 @include('components.dashboard.right-entries-group')
 
@@ -247,5 +315,7 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </x-app-layout>
 
