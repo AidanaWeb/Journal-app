@@ -41,3 +41,7 @@ Route::post('/dashboard/journals/{journal}/entries/store', [EntryController::cla
 Route::get('/dashboard/testModal', function(){
     return view('components/dashboard/testModal');
 });
+
+
+// delete entry
+Route::delete('journals/{journal}/entries/{entry}', [EntryController::class, 'destroy'])-> name('entries.destroy');

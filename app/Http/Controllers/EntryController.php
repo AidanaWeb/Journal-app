@@ -71,4 +71,14 @@ class EntryController extends Controller
             return redirect()->route('dashboard')->withErrors('error', 'не удалось создать запись');
         }
     }
+
+    public function destroy(Journal $journal, Entry $entry){
+
+        if($entry){
+            $entry -> delete();
+        }
+
+        return redirect()->route('journals.entries.index', compact('journal', 'entry'));
+
+    }
 }

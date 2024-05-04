@@ -13,7 +13,7 @@
     </button>
     
 
-    <div class="modal fade" id="errorCreateEntryModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -21,15 +21,32 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Выберите дневник
+              Удалить запись
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ОК</button>
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
 
+      <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5>Danger</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              Удалить запись?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger">ДА</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

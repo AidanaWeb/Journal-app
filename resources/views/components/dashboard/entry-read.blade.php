@@ -4,20 +4,14 @@
 
     @if (!empty($entry))
 
-        {{-- <ul class="nav justify-content-end">
+        <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
+                <button class="btn btn-dark">Изменить</button>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Удалить</button>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-        </ul> --}}
+        </ul>
 
         <h3 class="entry-read-title"> {{$entry->entry_title}} </h3>
         <pre class="entry-read-body">
@@ -26,3 +20,31 @@
     @endif 
     
 </div>
+
+
+{{-- modal delete --}}
+@if(!empty($entry))
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Danger</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+          Удалить запись?
+        </div>
+        <div class="modal-footer">
+            <form action="{{route('entries.destroy', ['journal' => $entry->journal_id, 'entry' => $entry->id])}} " method="post">
+                @csrf
+                @method('delete')
+
+                <button class="btn btn-danger" data-bs-dismiss="modal">ДА</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endif

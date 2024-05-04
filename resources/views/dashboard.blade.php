@@ -151,6 +151,10 @@
             white-space: pre-wrap;
         }
 
+        .nav-item{
+            margin-right: 10px;
+        }
+
 
         /* pseudo-classes */
         .entry-2:hover{
@@ -171,6 +175,8 @@
         #save-btn{
             background-color: black;
         }
+
+
     </style>
 
 <x-app-layout>
@@ -295,7 +301,8 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                </div>
+              
 
                 @include('components.dashboard.right-entries-group')
 
