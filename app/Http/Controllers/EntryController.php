@@ -81,4 +81,18 @@ class EntryController extends Controller
         return redirect()->route('journals.entries.index', compact('journal', 'entry'));
 
     }
+
+    public function update(Journal $journal, Entry $entry){
+
+        $validate = request()->validate([
+            'entry-title' => 'required|max:100',
+            'entry-body' => 'required'
+        ]);
+        $entry->entry_title = $validate['entry-title'];
+        $entry->entry_body = $validate['entry-body'];
+
+        $entry->save();
+
+        return redirect()->route('entry.show', compact('journal', 'entry'));
+    }
 }

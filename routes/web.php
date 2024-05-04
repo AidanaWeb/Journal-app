@@ -45,3 +45,6 @@ Route::get('/dashboard/testModal', function(){
 
 // delete entry
 Route::delete('journals/{journal}/entries/{entry}', [EntryController::class, 'destroy'])-> name('entries.destroy');
+
+// update entry
+Route::put('/dashboard/journals{journal}/entries/{entry}', [EntryController::class, 'update'])->name('entries.update');

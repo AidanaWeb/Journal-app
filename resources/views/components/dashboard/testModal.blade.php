@@ -13,40 +13,47 @@
     </button>
     
 
-    {{-- <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ошибка</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Удалить запись
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ОК</button>
-            </div>
+    <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Изменить запись</h5>
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-      </div> --}}
+          <div class="modal-body">
 
-      <div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5>Danger</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            
-            <div class="modal-body">
-              Удалить запись?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger">ДА</button>
-            </div>
+              {{-- Form --}}
+            <form action="" method="post">
+              @csrf
+              @method('post')
+
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Заголовок:</label>
+
+                  {{-- --}}
+                <input name="entry-title" type="text" class="form-control" id="recipient-name" value="asdasd">
+
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Запись:</label>
+
+                {{-- --}}
+                <textarea name="entry-body" class="form-control" id="message-text" 
+                style="min-height: 350px">asdasdasd</textarea>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+
+                {{-- Кнопка для сохранения --}}
+
+                   <input type="submit" id="save-btn" class="btn btn-dark" value="Сохранить"></input>
+
+              </div>
+            </form>
           </div>
         </div>
       </div>
+  </div>
 
 
 
