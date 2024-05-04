@@ -192,7 +192,7 @@
             <!-- Первый столбец --------------------------->
             <div class="col-lg-2">
 
-                <form action=" {{route('journals.store')}} " method="post">
+                {{-- <form action=" {{route('journals.store')}} " method="post">
                     @csrf
                     @method('post')
                     <button type="submit" class="btn btn-light add-journal">
@@ -200,7 +200,51 @@
                     </button>
 
                     <input name="journal-name" id="input-journal-name" type="text" placeholder="Название">    
-                </form>
+                </form> --}}
+
+                
+
+                <button type="submit" class="btn btn-light add-journal" data-bs-toggle="modal" data-bs-target="#createJournalModal">
+                    + Добавить дневник
+                </button>
+
+
+                {{-- modal add journal --}}
+                <div class="modal fade" id="createJournalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Создать дневник</h5>
+                          <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+              
+                            {{-- Form --}}
+                          <form action=" {{route('journals.store')}} " method="post" " method="post">
+                            @csrf
+                            @method('post')
+              
+                            <div class="mb-3">
+                              <label for="recipient-name" class="col-form-label">Название:</label>
+              
+                                {{-- --}}
+                              <input name="journal-name" type="text" class="form-control" id="recipient-name" placeholder="travel">
+              
+                            </div>
+                            <div class="mb-3">
+                             
+              
+                              {{-- Кнопка для сохранения --}}
+              
+                                 <input type="submit" id="save-btn" class="btn btn-dark" value="Сохранить"></input>
+              
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
 
                 @if (session()->has('errors'))
                     <ul>
@@ -226,7 +270,7 @@
                 <br>
                 
                 @if (!empty($journal_id))
-                    <button class="btn btn-dark"data-bs-toggle="modal" data-bs-target="#createEntryModal">
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#createEntryModal">
                         + Добавить запись
                     </button>
                 @else
