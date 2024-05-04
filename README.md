@@ -4,7 +4,7 @@
 
 ![image](https://github.com/AidanaWeb/Journal-app/assets/147721868/0bdc77c8-7a43-4704-9793-4dca8a7190bb)
 
-![image](https://github.com/AidanaWeb/Journal-app/assets/147721868/f3a13064-3ae1-49ee-bc7a-6d65bb1b4013)
+![image](https://github.com/AidanaWeb/Journal-app/assets/147721868/2187bac8-88c0-4ba2-97cd-cfda90f147d6)
 
 <hr>
 <br>
